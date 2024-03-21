@@ -1,17 +1,22 @@
 class RichWord:
     def __init__(self, parola):
-        self._parola = parola # this is a string
-        self._corretta = None #this is a bool
+        self._parola = parola
+        self._corretta = None
+
+    @property
+    def parola(self):
+        return self._parola
 
     @property
     def corretta(self):
-        # print("getter of parola called" )
         return self._corretta
 
     @corretta.setter
     def corretta(self, boolValue):
-        # print("setter of parola called" )
         self._corretta = boolValue
 
     def __str__(self):
-        return self._parola
+        if self._corretta:
+            return f"{self._parola} è corretta"
+        else:
+            return f"{self._parola} è sbagliata"
